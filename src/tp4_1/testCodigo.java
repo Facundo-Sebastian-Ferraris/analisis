@@ -17,7 +17,7 @@ public class testCodigo implements Runnable {
 
     // CONFIGURACIONES
     private final long N = 10;                       // Cantidad de pruebas
-    private final boolean mostrarIteracion = false;    // Mostrar cada iteración
+    private final boolean mostrarIteracion = true;    // Mostrar cada iteración
     private int[] a = generateArray(100);        // Array aleatorio con tantos elementos
     private final boolean resetArreglo = false;        // Refrescar arreglo por iteración
     private final boolean GRAFICAR = true;        // Abrir ventana de grafico
@@ -26,8 +26,40 @@ public class testCodigo implements Runnable {
      * Método principal de pruebas
      */
     public void main() {
-        int i = 2;
+        //fiboIt(49);
+        fiboRec(10);
     }
+    
+     public static int fiboIt(int n) {
+        int r = 0;
+        if (n <= 1) {
+            r = n;
+        } else {
+
+            int a = 0, b = 1, c;
+            for (int i = 2; i <= n; i++) {
+                c = a + b;
+                a = b;
+                b = c;
+            }
+            r = b;
+        }
+        return r;
+    }
+
+    public static int fiboRec(int n) {
+        int r = 0;
+        if (n == 1) {
+            r = 1;
+        } else if (n > 1) {
+            r = fiboRec(n - 1) + fiboRec(n - 2);
+        }
+        return r;
+    }
+    
+    
+    
+    
     // IGNORAR!!!!
     // VARIABLES PARA TIEMPOS Y GRAFICOS
     private GraficoDeLineas grafico = new GraficoDeLineas("Resultado de Prueba", N, a.length);
