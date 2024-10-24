@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 public class testCodigo implements Runnable {
 
     // CONFIGURACIONES
-    private final long N = 10;                       // Cantidad de pruebas
+    private final long N = 1;                       // Cantidad de pruebas
     private final boolean mostrarIteracion = true;    // Mostrar cada iteración
     private int[] a = generateArray(100);        // Array aleatorio con tantos elementos
     private final boolean resetArreglo = false;        // Refrescar arreglo por iteración
@@ -26,12 +26,12 @@ public class testCodigo implements Runnable {
      * Método principal de pruebas
      */
     public void main() {
-        //fiboIt(49);
-        fiboRec(10);
+        //fiboIt(40);
+        fiboRec(40);
     }
     
-     public static int fiboIt(int n) {
-        int r = 0;
+     public static long fiboIt(int n) {
+        long r = 0;
         if (n <= 1) {
             r = n;
         } else {
@@ -47,8 +47,8 @@ public class testCodigo implements Runnable {
         return r;
     }
 
-    public static int fiboRec(int n) {
-        int r = 0;
+    public static long fiboRec(int n) {
+        long r = 0;
         if (n == 1) {
             r = 1;
         } else if (n > 1) {
@@ -176,8 +176,8 @@ public class testCodigo implements Runnable {
 
             // Crear gráfico
             JFreeChart chart = ChartFactory.createLineChart(
-                    resultConNPruebas + " pruebas con a[" + sizeArreglo + "]", // Título
-                    "N° Prueba", // Eje X
+                    resultConNPruebas + " pruebas" //a[" + sizeArreglo + "]", // Título
+                    ,"N° Prueba", // Eje X
                     "T(n) (ns)", // Eje Y
                     dataset
             );
